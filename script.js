@@ -146,17 +146,12 @@ function calculateQuote() {
         baseTime -= savedPages * 0.1;
     }
 
-    // Cost Range formatting
-    const minCost = Math.round(baseCost * 0.9);
-    const maxCost = Math.round(baseCost * 1.15);
-    
     // Time Range formatting
     const minTime = Math.max(1, Math.floor(baseTime));
     const maxTime = Math.ceil(baseTime + 1);
 
     // Update outputs
     document.getElementById('resultTimeline').textContent = `${minTime} - ${maxTime} weeks`;
-    document.getElementById('resultCost').textContent = `$${minCost.toLocaleString()} - $${maxCost.toLocaleString()}`;
 }
 
 // Initialize calculator values on run
@@ -186,7 +181,6 @@ function handleFormSubmit(event) {
     const d4 = document.getElementById('deliv4')?.checked ? "Yes" : "No";
     
     const timeline = document.getElementById('resultTimeline')?.textContent || 'N/A';
-    const budget = document.getElementById('resultCost')?.textContent || 'N/A';
 
     // Construct request body
     const formData = new FormData(form);
@@ -199,7 +193,6 @@ function handleFormSubmit(event) {
     formData.append('Estimator_SQL_Setup', d3);
     formData.append('Estimator_Live_Dashboard', d4);
     formData.append('Estimator_Timeline', timeline);
-    formData.append('Estimator_Budget', budget);
 
     fetch('https://api.web3forms.com/submit', {
         method: 'POST',
