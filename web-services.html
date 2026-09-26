@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WordPress & PHP Web Development Services | Harshit Joshi</title>
+    <meta name="description" content="Custom WordPress design, WooCommerce stores, PHP backend development, speed optimization, and QA-verified web solutions by Harshit Joshi.">
+    <link rel="canonical" href="https://connectharshitjoshi.github.io/portfolio/web-services.html">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://connectharshitjoshi.github.io/portfolio/web-services.html">
+    <meta property="og:title" content="WordPress & PHP Web Development Services | Harshit Joshi">
+    <meta property="og:description" content="Custom WordPress websites, WooCommerce stores, and PHP development backed by rigorous QA testing for zero bugs and ultra-fast loading speeds.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* Scoped Enhancements for Web Services Page */
+        .service-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.25);
+            padding: 8px 18px;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary-light);
+            margin-bottom: 24px;
+        }
+
+        .services-grid-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .service-box {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 32px 28px;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-box:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .service-box h3 {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .service-box p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .service-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 16px;
+        }
+
+        .service-tag {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+
+        /* Why Me Grid */
+        .advantage-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .advantage-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px 20px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .advantage-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-3px);
+        }
+
+        .advantage-icon {
+            font-size: 2.2rem;
+            margin-bottom: 16px;
+        }
+
+        .advantage-card h4 {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .advantage-card p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Pricing Packages Grid */
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            margin-top: 20px;
+        }
+
+        .package-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 36px 28px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .package-card.popular {
+            border-color: var(--primary);
+            background: linear-gradient(180deg, rgba(99, 102, 241, 0.06) 0%, var(--bg-surface) 100%);
+            box-shadow: 0 0 25px rgba(99, 102, 241, 0.15);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-gradient);
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 14px;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .package-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .package-name {
+            font-family: var(--font-heading);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .package-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            min-height: 44px;
+        }
+
+        .package-timeline {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary-light);
+            background: rgba(99, 102, 241, 0.08);
+            padding: 6px 12px;
+            border-radius: 6px;
+            margin-bottom: 24px;
+            width: fit-content;
+        }
+
+        .package-features {
+            list-style: none;
+            margin-bottom: 32px;
+            flex-grow: 1;
+        }
+
+        .package-features li {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .package-features li::before {
+            content: '✓';
+            color: #10b981;
+            font-weight: 700;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            .services-grid-cards,
+            .packages-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .advantage-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .services-grid-cards,
+            .packages-grid,
+            .advantage-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Navigation -->
+    <nav>
+        <div class="container nav-content">
+            <a href="index.html" class="logo">
+                HarshitJoshi
+                <div class="logo-dot"></div>
+                <span style="font-size: 0.75rem; color: var(--primary-light); margin-left: 8px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;">Web Services</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#why-me">The QA Edge</a></li>
+                <li><a href="#portfolio">Featured Work</a></li>
+                <li><a href="#pricing">Packages</a></li>
+                <li><a href="#contact">Get a Quote</a></li>
+                <li><a href="index.html" class="nav-resume-btn">← QA Portfolio</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="glow-sphere"></div>
+        <div class="container hero-content">
+            <div class="service-badge">
+                <span>⚡</span> WordPress & PHP Web Engineering
+            </div>
+
+            <h1>Custom WordPress & PHP Sites Built with <span>Zero Bugs.</span></h1>
+
+            <p>High-converting business websites, custom WooCommerce storefronts, and tailored PHP web applications. Engineered clean, lightning-fast, and rigorously cross-browser tested before handover.</p>
+
+            <div class="hero-actions">
+                <a href="#contact" class="btn btn-primary">Start Your Project</a>
+                <a href="#services" class="btn btn-secondary">Explore Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Web Development Services</h2>
+                <p>Full-lifecycle web engineering from design implementation and database integration to deployment and security hardening.</p>
+            </div>
+
+            <div class="services-grid-cards">
+                <!-- 1. Custom WordPress -->
+                <div class="service-box reveal">
+                    <div class="service-icon">🌐</div>
+                    <h3>Custom WordPress Websites</h3>
+                    <p>Clean, modern WordPress sites built for brands, agencies, and businesses. Fully editable with Elementor or Gutenberg blocks, lightweight code, and mobile-first responsiveness.</p>
+                    <div class="service-tags">
+                        <span class="service-tag">WordPress</span>
+                        <span class="service-tag">Elementor Pro</span>
+                        <span class="service-tag">Custom Themes</span>
+                        <span class="service-tag">Mobile Responsive</span>
+                    </div>
+                </div>
+
+                <!-- 2. WooCommerce -->
+                <div class="service-box reveal">
+                    <div class="service-icon">🛒</div>
+                    <h3>WooCommerce & eCommerce</h3>
+                    <p>End-to-end online storefronts engineered to convert. Seamless checkout funnels, automated invoicing, inventory tracking, and payment gateways (Stripe, PayPal, Razorpay).</p>
+                    <div class="service-tags">
+                        <span class="service-tag">WooCommerce</span>
+                        <span class="service-tag">Stripe / PayPal</span>
+                        <span class="service-tag">Product Variations</span>
+                        <span class="service-tag">Fast Checkout</span>
+                    </div>
+                </div>
+
+                <!-- 3. PHP Backend -->
+                <div class="service-box reveal">
+                    <div class="service-icon">⚙️</div>
+                    <h3>Custom PHP & Database Logic</h3>
+                    <p>Custom PHP development, MySQL database optimization, dynamic form processing, API integrations, and secure backend portal workflows tailored to your business operations.</p>
+                    <div class="service-tags">
+                        <span class="service-tag">PHP 8+</span>
+                        <span class="service-tag">MySQL Database</span>
+                        <span class="service-tag">RESTful APIs</span>
+                        <span class="service-tag">Custom Scripts</span>
+                    </div>
+                </div>
+
+                <!-- 4. Speed & Core Web Vitals -->
+                <div class="service-box reveal">
+                    <div class="service-icon">🚀</div>
+                    <h3>Speed Optimization & SEO</h3>
+                    <p>Transforming sluggish websites into lightning-fast platforms scoring 90+ on Google PageSpeed. Comprehensive caching, asset minification, image compression, and database tuning.</p>
+                    <div class="service-tags">
+                        <span class="service-tag">Core Web Vitals</span>
+                        <span class="service-tag">90+ PageSpeed</span>
+                        <span class="service-tag">Cache Setup</span>
+                        <span class="service-tag">CDN Integration</span>
+                    </div>
+                </div>
+
+                <!-- 5. Bug Fixing & Maintenance -->
+                <div class="service-box reveal">
+                    <div class="service-icon">🛠️</div>
+                    <h3>Bug Fixing & Troubleshooting</h3>
+                    <p>Resolving WordPress critical errors, PHP syntax crashes, plugin/theme incompatibilities, broken mobile layouts, SSL certificate issues, and database connection failures.</p>
+                    <div class="service-tags">
+                        <span class="service-tag">PHP Error Fix</span>
+                        <span class="service-tag">Plugin Conflicts</span>
+                        <span class="service-tag">Security Patches</span>
+                        <span class="service-tag">Quick Turnaround</span>
+                    </div>
+                </div>
+
+                <!-- 6. QA Verified Quality -->
+                <div class="service-box reveal">
+                    <div class="service-icon">✅</div>
+                    <h3>Rigorous QA & Device Audits</h3>
+                    <p>Every website undergoes automated and manual cross-browser testing across Safari, Chrome, Firefox, iOS, and Android to guarantee zero broken links, forms, or payment glitches.</p>
+                    <div class="service-tags">
+                        <span class="service-tag">Cross-Browser</span>
+                        <span class="service-tag">Payment Testing</span>
+                        <span class="service-tag">Form Validation</span>
+                        <span class="service-tag">Zero Defect Handover</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Engineering & Web Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Engineering & Web Experience</h2>
+                <p>A proven background in web portal development, eCommerce engineering, and high-concurrency enterprise systems.</p>
+            </div>
+            <div class="timeline">
+                <!-- Role 1: Welo Global -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div class="timeline-title">
+                                <h3>Localization & Global Web QA Engineer</h3>
+                                <div class="timeline-company">Welo Global</div>
+                            </div>
+                            <span class="timeline-date">Sept 2026 - Present</span>
+                        </div>
+                        <p class="timeline-body">
+                            Verify international web platforms across multiple global locales. Ensure multilingual CMS compatibility, character encoding (UTF-8), regional payment gateways, and responsive UI layout rendering across international device viewports.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Internationalization (I18n)</span>
+                            <span class="tag">Multilingual CMS</span>
+                            <span class="tag">UI Layout Verification</span>
+                            <span class="tag">Regional Payment Flows</span>
+                            <span class="tag">Cross-Browser QA</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Role 2: Webkul Software -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div class="timeline-title">
+                                <h3>eCommerce & Web Solutions Architect</h3>
+                                <div class="timeline-company">Webkul Software Private Limited</div>
+                            </div>
+                            <span class="timeline-date">Feb 2025 - Sept 2026</span>
+                        </div>
+                        <p class="timeline-body">
+                            Architected and tested complex eCommerce web platforms, POS storefronts, and checkout funnels. Diagnosed and resolved PHP/database performance bottlenecks, integrated secure payment gateways, and validated inventory synchronization across multi-vendor web portals.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">eCommerce Platforms</span>
+                            <span class="tag">Payment Gateway Integration</span>
+                            <span class="tag">POS & Web Portals</span>
+                            <span class="tag">PHP Debugging</span>
+                            <span class="tag">Inventory Sync</span>
+                            <span class="tag">Performance Tuning</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Role 3: Infoneo Technologies -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div class="timeline-title">
+                                <h3>Web Portal & Database Analyst</h3>
+                                <div class="timeline-company">Infoneo Technologies Private Limited</div>
+                            </div>
+                            <span class="timeline-date">Sept 2022 - Feb 2025</span>
+                        </div>
+                        <p class="timeline-body">
+                            Developed and optimized high-scale web platforms, including public distribution web systems serving over 700,000 users (Maha Kumbh Mela). Engineered secure online tender platforms for Oil India & ONGC (70,000+ applicants), performing SQL database tuning, secure form authentication, and interactive reporting dashboards.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Web Development</span>
+                            <span class="tag">SQL Database Tuning</span>
+                            <span class="tag">Secure Form Handling</span>
+                            <span class="tag">High-Scale Architecture</span>
+                            <span class="tag">Portal Optimization</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Work With Me (The QA Edge) -->
+    <section id="why-me" style="background: rgba(255, 255, 255, 0.01);">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Why Work With Me?</h2>
+                <p>The unique developer + QA advantage that guarantees your website launches smoothly without embarrassing bugs.</p>
+            </div>
+
+            <div class="advantage-grid">
+                <div class="advantage-card reveal">
+                    <div class="advantage-icon">🛡️</div>
+                    <h4>Built-In QA Testing</h4>
+                    <p>I don't just write code and hope it works. Every page, checkout flow, and contact form is thoroughly tested across multiple devices before delivery.</p>
+                </div>
+
+                <div class="advantage-card reveal">
+                    <div class="advantage-icon">⚡</div>
+                    <h4>Speed & Performance First</h4>
+                    <p>Clean code architecture free of redundant, bloated plugins. Fast load times improve both Google SEO rankings and visitor conversion rates.</p>
+                </div>
+
+                <div class="advantage-card reveal">
+                    <div class="advantage-icon">📱</div>
+                    <h4>100% Mobile Fluidity</h4>
+                    <p>Over 60% of web traffic is mobile. Your site will look pixel-perfect and operate smoothly on phones, tablets, laptops, and ultra-wide screens.</p>
+                </div>
+
+                <div class="advantage-card reveal">
+                    <div class="advantage-icon">🤝</div>
+                    <h4>Reliable Communication</h4>
+                    <p>Clear milestones, timely progress updates, and transparent turnaround times. No disappearing acts, no endless delays.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Web Work Showcase -->
+    <section id="portfolio">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Featured Web Solutions</h2>
+                <p>Examples of high-performance web systems and digital storefronts engineered for real-world business results.</p>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card reveal">
+                    <h3>Corporate Business Portal</h3>
+                    <p>Responsive corporate WordPress website with custom service catalogues, interactive cost calculators, automated contact lead capture, and optimized 95+ mobile PageSpeed score.</p>
+                    <div class="project-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">95+</span>
+                            <span class="stat-label">Mobile PageSpeed</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">Custom WP</span>
+                            <span class="stat-label">Elementor / ACF</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card reveal">
+                    <h3>eCommerce Storefront & Checkout</h3>
+                    <p>High-conversion WooCommerce online store featuring dynamic product filters, instant AJAX cart drawer, one-page checkout, Stripe/PayPal payment routing, and inventory sync.</p>
+                    <div class="project-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">0 Errors</span>
+                            <span class="stat-label">Payment Flow Validated</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">WooCommerce</span>
+                            <span class="stat-label">eCommerce Engine</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card reveal">
+                    <h3>Custom PHP Data Directory</h3>
+                    <p>Custom PHP and MySQL database portal with secure user authentication, multi-criteria search filtering, automated PDF report generation, and automated form notification hooks.</p>
+                    <div class="project-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">Secure</span>
+                            <span class="stat-label">SQL Schema & Auth</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">PHP / MySQL</span>
+                            <span class="stat-label">Backend Architecture</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing & Project Packages -->
+    <section id="pricing" style="background: rgba(255, 255, 255, 0.01);">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Standard Project Packages</h2>
+                <p>Clear, scope-defined deliverables tailored for individuals, startups, and growing enterprises.</p>
+            </div>
+
+            <div class="packages-grid">
+                <!-- Package 1 -->
+                <div class="package-card reveal">
+                    <div class="package-name">Starter Website</div>
+                    <div class="package-desc">Ideal for landing pages, portfolios, or single service promotions needing quick, polished launch.</div>
+                    <div class="package-timeline">⏱ 4 – 7 Days Turnaround</div>
+                    <ul class="package-features">
+                        <li>1 to 5 Fully Responsive Pages</li>
+                        <li>Clean WordPress / HTML5 Setup</li>
+                        <li>Contact Form & WhatsApp Integration</li>
+                        <li>Mobile & Tablet Optimization</li>
+                        <li>Basic On-Page SEO Setup</li>
+                        <li>Cross-Browser QA Testing</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-secondary" style="width: 100%;">Select Starter</a>
+                </div>
+
+                <!-- Package 2 (Popular) -->
+                <div class="package-card popular reveal">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="package-name">Business Website</div>
+                    <div class="package-desc">Complete corporate web solution with dynamic service modules, blog, and speed optimization.</div>
+                    <div class="package-timeline">⏱ 10 – 14 Days Turnaround</div>
+                    <ul class="package-features">
+                        <li>Up to 10 Custom Designed Pages</li>
+                        <li>Custom WordPress Theme / Elementor</li>
+                        <li>Dynamic Blog & Portfolio Sections</li>
+                        <li>Advanced Speed Optimization (90+ Score)</li>
+                        <li>Lead Capture & Automated Email Alerts</li>
+                        <li>Security Hardening & SSL Configuration</li>
+                        <li>Rigorous Multi-Device QA Validation</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary" style="width: 100%;">Select Business</a>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="package-card reveal">
+                    <div class="package-name">eCommerce / Custom PHP</div>
+                    <div class="package-desc">Full online storefront or custom PHP application tailored to specific business operations.</div>
+                    <div class="package-timeline">⏱ 2 – 4 Weeks Turnaround</div>
+                    <ul class="package-features">
+                        <li>Full WooCommerce Store Setup</li>
+                        <li>Payment Gateways (Stripe, PayPal, etc.)</li>
+                        <li>Custom PHP Scripts & Database Logic</li>
+                        <li>Product Variations & Inventory Tracking</li>
+                        <li>Customer Account Management Portal</li>
+                        <li>End-to-End Automated Payment QA Audit</li>
+                        <li>30 Days Post-Launch Support</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-secondary" style="width: 100%;">Select eCommerce</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Direct Inquiry -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Let's Discuss Your Project</h2>
+                <p>Have a project in mind, an existing site that needs fixes, or want a custom quote? Send a message below and get a reply within 24 hours.</p>
+            </div>
+
+            <div class="contact-layout reveal">
+                <!-- Project Scope Overview -->
+                <div class="estimator-container">
+                    <h3>How We Collaborate</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 20px; font-size: 0.95rem; line-height: 1.6;">
+                        1. <strong>Project Scope:</strong> We discuss your site goals, reference designs, and feature requirements.<br><br>
+                        2. <strong>Transparent Proposal:</strong> You receive a clear milestone breakdown, timeline, and exact scope.<br><br>
+                        3. <strong>Build & Review:</strong> I build your site on a staging environment for your live feedback.<br><br>
+                        4. <strong>QA Audit & Launch:</strong> We test edge cases, payment gateways, and responsive layouts, then deploy smoothly to your domain.
+                    </p>
+
+                    <div style="border-top: 1px solid var(--border); padding-top: 20px;">
+                        <h4 style="color: var(--text-primary); margin-bottom: 12px; font-size: 0.95rem;">Direct Contact Channels</h4>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 8px;">📧 Email: <a href="mailto:harshit.joshi.in@gmail.com" style="color: var(--primary-light); text-decoration: none;">harshit.joshi.in@gmail.com</a></p>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 8px;">📱 WhatsApp / Phone: <a href="https://wa.me/919015921534" target="_blank" style="color: var(--primary-light); text-decoration: none;">+91 9015921534</a></p>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem;">📍 Location: Noida / Delhi, India (Working Globally)</p>
+                    </div>
+                </div>
+
+                <!-- Working Web3Forms Form -->
+                <div class="contact-form-container">
+                    <h3>Send a Direct Project Brief</h3>
+                    <form id="contactForm" onsubmit="handleServicesForm(event)">
+                        <!-- Web3Forms Access Key -->
+                        <input type="hidden" name="access_key" value="a6297cc5-c8c6-48ec-9fff-cfcd51a16916">
+                        <input type="hidden" name="subject" value="New WordPress/PHP Web Project Inquiry">
+                        <input type="hidden" name="from_name" value="Web Services Visitor">
+
+                        <div class="form-group">
+                            <label class="form-label" for="formName">Your Name</label>
+                            <input type="text" name="name" class="form-input" id="formName" required placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="formEmail">Email Address</label>
+                            <input type="email" name="email" class="form-input" id="formEmail" required placeholder="john@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="formService">Project Type</label>
+                            <select name="service_type" class="estimator-select" id="formService" style="margin-bottom: 0;">
+                                <option value="WordPress Website">Custom WordPress Website</option>
+                                <option value="WooCommerce Store">WooCommerce / eCommerce Store</option>
+                                <option value="PHP Backend & Database">Custom PHP Backend & Database</option>
+                                <option value="Speed Optimization">Speed Optimization & Core Web Vitals</option>
+                                <option value="Bug Fixing">Bug Fixing & Error Resolution</option>
+                                <option value="Other">Other / Custom Project</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="formPhone">Phone / WhatsApp (Optional)</label>
+                            <input type="tel" name="phone" class="form-input" id="formPhone" placeholder="+91 98765 43210">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="formMsg">Project Details & Requirements</label>
+                            <textarea name="message" class="form-textarea" id="formMsg" required placeholder="Briefly describe what you need (e.g. number of pages, reference websites, specific features)..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Project Brief</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="social-links">
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/harshit-joshi-140aa0217/" target="_blank" class="social-btn" aria-label="LinkedIn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 11.268h-3v-5.604c0-1.337-.027-3.063-1.868-3.063-1.868 0-2.154 1.46-2.154 2.969v5.698h-3v-10h2.881v1.367h.041c.401-.76 1.379-1.562 2.837-1.562 3.036 0 3.6 2.007 3.6 4.618v5.577z"/>
+                    </svg>
+                </a>
+                <!-- GitHub -->
+                <a href="https://github.com/connectharshitjoshi" target="_blank" class="social-btn" aria-label="GitHub">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.089-.745.084-.729.084-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.835 2.809 1.304 3.495.997.108-.776.418-1.305.762-1.604-2.665-.305-5.466-1.334-5.466-5.931 0-1.31.469-2.381 1.236-3.221-.135-.303-.54-1.524.105-3.176 0 0 1.005-.322 3.3 1.23a11.48 11.48 0 0 1 3.003-.404c1.02.005 2.045.138 3.003.404 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.874.12 3.176.765.84 1.23 1.911 1.23 3.221 0 4.61-2.805 5.625-5.475 5.921.429.372.81 1.102.81 2.222 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57 4.765-1.585 8.2-6.082 8.2-11.385 0-6.627-5.373-12-12-12"/>
+                    </svg>
+                </a>
+                <!-- WhatsApp -->
+                <a href="https://wa.me/919015921534" target="_blank" class="social-btn" aria-label="WhatsApp">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.004 2.2c-5.41 0-9.8 4.39-9.8 9.8 0 1.73.45 3.41 1.31 4.89l-1.39 5.09 5.21-1.37a9.75 9.75 0 0 0 4.67 1.19h.01c5.41 0 9.8-4.39 9.8-9.8s-4.39-9.8-9.81-9.8zm5.74 13.95c-.24.67-1.37 1.27-1.9 1.35-.49.08-1.11.11-1.79-.11-.41-.13-.94-.31-1.62-.6-2.85-1.24-4.71-4.12-4.85-4.31-.14-.19-1.16-1.55-1.16-2.96 0-1.4.74-2.1 1-2.37.26-.29.56-.37.75-.37.19 0 .38 0 .55.01.18.01.41-.07.65.5.25.61.85 2.07.92 2.21.07.14.11.3.02.48-.09.19-.14.31-.27.47-.14.17-.29.38-.41.51-.14.14-.28.29-.11.57.17.28.74 1.22 1.59 1.98 1.1 1 2.01 1.28 2.3 1.41.29.14.46.11.63-.07.17-.19.77-.9 1-.1.21.31.41.26.69.15.28.11 1.78.84 2.09.99.31.15.52.23.6.36.08.14.08.76-.16 1.42z"/>
+                    </svg>
+                </a>
+            </div>
+            <p class="footer-text">&copy; 2026 Harshit Joshi. All rights reserved. • <a href="index.html" style="color: var(--primary-light); text-decoration: none;">QA Engineering Portfolio</a></p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Navigation Toggle
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        if (navToggle) {
+            navToggle.addEventListener('click', () => {
+                navToggle.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+        }
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navToggle) navToggle.classList.remove('active');
+                if (navLinks) navLinks.classList.remove('active');
+            });
+        });
+
+        // Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            revealElements.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 80) {
+                    el.classList.add('active');
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+
+        // Form Submission
+        function handleServicesForm(event) {
+            event.preventDefault();
+            const form = document.getElementById('contactForm');
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+
+            const formData = new FormData(form);
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            })
+            .then(async (response) => {
+                if (response.status === 200) {
+                    submitBtn.textContent = 'Brief Received! I will reply shortly.';
+                    submitBtn.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
+                    form.reset();
+                } else {
+                    submitBtn.textContent = 'Error sending. Please email directly!';
+                    submitBtn.style.background = 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)';
+                }
+            })
+            .catch(() => {
+                submitBtn.textContent = 'Error sending. Please email directly!';
+                submitBtn.style.background = 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)';
+            })
+            .then(() => {
+                setTimeout(() => {
+                    submitBtn.textContent = originalText;
+                    submitBtn.style.background = '';
+                    submitBtn.disabled = false;
+                }, 4500);
+            });
+        }
+    </script>
+</body>
+</html>

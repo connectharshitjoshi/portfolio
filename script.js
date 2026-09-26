@@ -95,10 +95,10 @@ if (slides.length > 0) {
 
 
 /* ==========================================================================
-   2. Project Cost Estimator Logic
+   2. QA Scope & Automation Estimator Logic
    ========================================================================== */
 function updateSliderVal(val) {
-    document.getElementById('sliderVal').textContent = `${val} ${val == 1 ? 'page' : 'pages'}`;
+    document.getElementById('sliderVal').textContent = `${val} ${val == 1 ? 'module' : 'modules'}`;
     calculateQuote();
 }
 
@@ -107,43 +107,37 @@ function calculateQuote() {
     if (!typeSelect) return; // Prevent errors if loaded on subpages without form
 
     const type = typeSelect.value;
-    const pages = parseInt(document.getElementById('projectPages').value);
+    const modules = parseInt(document.getElementById('projectPages').value) || 15;
     
-    const d1 = document.getElementById('deliv1').checked;
-    const d2 = document.getElementById('deliv2').checked;
-    const d3 = document.getElementById('deliv3').checked;
-    const d4 = document.getElementById('deliv4').checked;
+    const d1 = document.getElementById('deliv1')?.checked;
+    const d2 = document.getElementById('deliv2')?.checked;
+    const d3 = document.getElementById('deliv3')?.checked;
+    const d4 = document.getElementById('deliv4')?.checked;
 
-    let baseCost = 0;
     let baseTime = 0;
 
-    // Service base factors
-    if (type === 'webdev') {
-        baseCost = 800;
+    // Scope base turnaround (in weeks)
+    if (type === 'e2e') {
         baseTime = 2.0;
-    } else if (type === 'data') {
-        baseCost = 1000;
-        baseTime = 2.5;
-    } else { // Hybrid
-        baseCost = 1500;
-        baseTime = 4.0;
+    } else if (type === 'api') {
+        baseTime = 1.5;
+    } else { // Full QA Overhaul
+        baseTime = 3.0;
     }
 
-    // Deliverables add-on costs
-    if (d1) { baseCost += 150; baseTime += 0.3; }
-    if (d2) { baseCost += 250; baseTime += 0.5; }
-    if (d3) { baseCost += 300; baseTime += 0.5; }
-    if (d4) { baseCost += 400; baseTime += 1.0; }
+    // Deliverables add-on times
+    if (d1) { baseTime += 0.4; } // Cross-browser suite
+    if (d2) { baseTime += 0.4; } // API test scripts
+    if (d3) { baseTime += 0.5; } // CI/CD quality gates
+    if (d4) { baseTime += 0.3; } // Allure / HTML reporting
 
-    // Pages count multiplier
-    if (pages > 5) {
-        const extraPages = pages - 5;
-        baseCost += extraPages * 90;
-        baseTime += extraPages * 0.15;
-    } else if (pages < 5) {
-        const savedPages = 5 - pages;
-        baseCost -= savedPages * 50;
-        baseTime -= savedPages * 0.1;
+    // Module count adjustment
+    if (modules > 15) {
+        const extra = modules - 15;
+        baseTime += extra * 0.08;
+    } else if (modules < 15) {
+        const saved = 15 - modules;
+        baseTime -= saved * 0.05;
     }
 
     // Time Range formatting
@@ -151,7 +145,10 @@ function calculateQuote() {
     const maxTime = Math.ceil(baseTime + 1);
 
     // Update outputs
-    document.getElementById('resultTimeline').textContent = `${minTime} - ${maxTime} weeks`;
+    const resultTimeline = document.getElementById('resultTimeline');
+    if (resultTimeline) {
+        resultTimeline.textContent = `${minTime} - ${maxTime} weeks`;
+    }
 }
 
 // Initialize calculator values on run
@@ -159,7 +156,7 @@ calculateQuote();
 
 
 /* ==========================================================================
-   3. Glassmorphic Inquiry Form handler
+   3. Direct QA Inquiry Form Handler
    ========================================================================== */
 function handleFormSubmit(event) {
     event.preventDefault();
@@ -170,10 +167,10 @@ function handleFormSubmit(event) {
     submitBtn.textContent = 'Sending...';
     submitBtn.disabled = true;
 
-    // Gather estimator values to include them in the email notification!
+    // Gather estimator values to include them in the email notification
     const typeSelect = document.getElementById('projectType');
     const type = typeSelect ? typeSelect.options[typeSelect.selectedIndex].text : 'N/A';
-    const pages = document.getElementById('projectPages') ? document.getElementById('projectPages').value : 'N/A';
+    const modules = document.getElementById('projectPages') ? document.getElementById('projectPages').value : 'N/A';
     
     const d1 = document.getElementById('deliv1')?.checked ? "Yes" : "No";
     const d2 = document.getElementById('deliv2')?.checked ? "Yes" : "No";
@@ -186,12 +183,12 @@ function handleFormSubmit(event) {
     const formData = new FormData(form);
     
     // Append estimator data to form data so it is emailed as fields
-    formData.append('Estimator_Service_Type', type);
-    formData.append('Estimator_Pages', pages);
-    formData.append('Estimator_Responsive_UI', d1);
-    formData.append('Estimator_API_Connections', d2);
-    formData.append('Estimator_SQL_Setup', d3);
-    formData.append('Estimator_Live_Dashboard', d4);
+    formData.append('Estimator_Testing_Scope', type);
+    formData.append('Estimator_Modules_Count', modules);
+    formData.append('Estimator_Cross_Browser', d1);
+    formData.append('Estimator_API_Scripts', d2);
+    formData.append('Estimator_CICD_Gates', d3);
+    formData.append('Estimator_Reports', d4);
     formData.append('Estimator_Timeline', timeline);
 
     fetch('https://api.web3forms.com/submit', {
@@ -201,7 +198,7 @@ function handleFormSubmit(event) {
     .then(async (response) => {
         let json = await response.json();
         if (response.status == 200) {
-            submitBtn.textContent = 'Inquiry Received!';
+            submitBtn.textContent = 'Message Received!';
             submitBtn.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
             form.reset();
             if (typeof calculateQuote === 'function') calculateQuote(); // Reset estimator UI too
@@ -227,43 +224,43 @@ function handleFormSubmit(event) {
 
 
 /* ==========================================================================
-   4. Live Dashboard / Dynamic SVG Chart Renderer
+   4. QA Metrics Lab / Dynamic SVG Chart Renderer
    ========================================================================== */
 const dashboardData = {
-    traffic: {
+    traffic: { // Automated Test Runs
         7: {
             labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
             values: [1200, 1450, 1100, 1650, 1900, 1500, 1800],
-            kpis: ['10.6K', '1.9K', '36.8%']
+            kpis: ['10.6K', '1.9K', '0.4%']
         },
         30: {
             labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
             values: [5200, 6100, 5800, 7400],
-            kpis: ['24.5K', '7.4K', '35.2%']
+            kpis: ['24.5K', '7.4K', '0.3%']
         }
     },
-    conversions: {
+    conversions: { // Pass Rate %
         7: {
             labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-            values: [42, 58, 39, 65, 78, 51, 68],
-            kpis: ['401', '78', '3.25%']
+            values: [98.5, 99.1, 98.4, 99.5, 99.8, 99.2, 99.7],
+            kpis: ['99.2%', '99.8%', '99.5%']
         },
         30: {
             labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
-            values: [180, 240, 210, 290],
-            kpis: ['920', '290', '3.75%']
+            values: [98.6, 99.0, 99.3, 99.6],
+            kpis: ['99.1%', '99.6%', '99.4%']
         }
     },
-    revenue: {
+    revenue: { // Defects Blocked
         7: {
             labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-            values: [850, 1200, 900, 1400, 1850, 1100, 1500],
-            kpis: ['$8.8K', '$1.85K', '+12.4%']
+            values: [14, 22, 18, 31, 28, 12, 25],
+            kpis: ['150', '31', '98.5%']
         },
         30: {
             labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
-            values: [3800, 4900, 4200, 5900],
-            kpis: ['$18.8K', '$5.9K', '+24.1%']
+            values: [84, 112, 96, 138],
+            kpis: ['430', '138', '99.1%']
         }
     }
 };
@@ -278,7 +275,11 @@ function switchMetric(metric) {
     const tabs = document.querySelectorAll('.dashboard-tab');
     tabs.forEach(tab => {
         tab.classList.remove('active');
-        if (tab.textContent.toLowerCase().includes(metric)) {
+        if (
+            (metric === 'traffic' && tab.textContent.includes('Test Runs')) ||
+            (metric === 'conversions' && tab.textContent.includes('Pass Rate')) ||
+            (metric === 'revenue' && tab.textContent.includes('Defects'))
+        ) {
             tab.classList.add('active');
         }
     });
@@ -307,15 +308,15 @@ function updateKPIs() {
     const kpis = dashboardData[activeMetric][activePeriod].kpis;
     
     const kpiTitleMap = {
-        traffic: ['Total Traffic', 'Peak Active', 'Bounce Rate'],
-        conversions: ['Total Conversions', 'Peak Conversion', 'Conversion Rate'],
-        revenue: ['Total Revenue', 'Peak Daily', 'Revenue Growth']
+        traffic: ['Total Tests Run', 'Peak Daily Suites', 'Defect Leakage'],
+        conversions: ['Average Pass Rate', 'Peak Pass Rate', 'Regression Stability'],
+        revenue: ['Defects Prevented', 'Peak Bugs Caught', 'Pre-Release SLA']
     };
 
     const changes = {
-        traffic: ['↑ 12.4%', '↑ 8.2%', '↓ 4.1%'],
-        conversions: ['↑ 18.6%', '↑ 14.1%', '↑ 9.4%'],
-        revenue: ['↑ 22.1%', '↑ 18.4%', '↑ 15.6%']
+        traffic: ['↑ 12.4%', '↑ 8.2%', '↓ 0.2%'],
+        conversions: ['↑ 0.8%', '↑ 0.5%', '↑ 0.4%'],
+        revenue: ['↑ 18.2%', '↑ 12.4%', '↑ 99.5%']
     };
 
     // Update titles
@@ -339,7 +340,7 @@ function updateKPIs() {
 
     // Align positive/negative change CSS classes
     if (activeMetric === 'traffic') {
-        change3.className = 'kpi-change down'; // Bounce rate decrease is good
+        change3.className = 'kpi-change down'; // Defect leakage decrease is good
     } else {
         change3.className = 'kpi-change up';
     }

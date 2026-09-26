@@ -835,14 +835,18 @@ footer {
 }
 
 /* Custom glow effects for specific tech */
-.tech-react:hover { border-color: #61dafb; box-shadow: 0 0 15px rgba(97, 218, 251, 0.2); }
-.tech-nextjs:hover { border-color: #ffffff; box-shadow: 0 0 15px rgba(255, 255, 255, 0.15); }
-.tech-python:hover { border-color: #3776ab; box-shadow: 0 0 15px rgba(55, 118, 171, 0.2); }
+.tech-playwright:hover { border-color: #2eac68; box-shadow: 0 0 15px rgba(46, 172, 104, 0.25); }
+.tech-selenium:hover { border-color: #43b02a; box-shadow: 0 0 15px rgba(67, 176, 42, 0.25); }
+.tech-postman:hover { border-color: #ff6c37; box-shadow: 0 0 15px rgba(255, 108, 55, 0.25); }
+.tech-jenkins:hover { border-color: #d33833; box-shadow: 0 0 15px rgba(211, 56, 51, 0.25); }
+.tech-jira:hover { border-color: #0052cc; box-shadow: 0 0 15px rgba(0, 82, 204, 0.25); }
+.tech-java:hover { border-color: #ea2d2e; box-shadow: 0 0 15px rgba(234, 45, 46, 0.25); }
+.tech-appium:hover { border-color: #663399; box-shadow: 0 0 15px rgba(102, 51, 153, 0.25); }
+.tech-jmeter:hover { border-color: #d22128; box-shadow: 0 0 15px rgba(210, 33, 40, 0.25); }
 .tech-sql:hover { border-color: #0064a5; box-shadow: 0 0 15px rgba(0, 100, 165, 0.2); }
-.tech-powerbi:hover { border-color: #f2c811; box-shadow: 0 0 15px rgba(242, 200, 17, 0.2); }
-.tech-tableau:hover { border-color: #e97627; box-shadow: 0 0 15px rgba(233, 118, 39, 0.2); }
 .tech-git:hover { border-color: #f05032; box-shadow: 0 0 15px rgba(240, 80, 50, 0.2); }
 .tech-api:hover { border-color: #a855f7; box-shadow: 0 0 15px rgba(168, 85, 247, 0.2); }
+.tech-l10n:hover { border-color: #38bdf8; box-shadow: 0 0 15px rgba(56, 189, 248, 0.25); }
 
 /* Testimonials Section */
 .testimonials-slider {
@@ -1294,6 +1298,103 @@ footer {
     min-height: 120px;
 }
 
+/* Resume Button in Nav */
+.nav-resume-btn {
+    border: 1px solid var(--primary-light) !important;
+    padding: 6px 14px !important;
+    border-radius: 6px !important;
+    color: var(--primary-light) !important;
+    background: rgba(99, 102, 241, 0.08);
+    transition: var(--transition);
+}
+
+.nav-resume-btn:hover {
+    background: var(--primary-gradient) !important;
+    color: #ffffff !important;
+    border-color: transparent !important;
+    transform: translateY(-2px);
+}
+
+/* Credentials (Education & Certifications) */
+.credentials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.credential-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: var(--transition);
+}
+
+.credential-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-4px);
+}
+
+.credential-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 16px;
+}
+
+.credential-icon {
+    font-size: 1.6rem;
+}
+
+.credential-header h3 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.credential-item {
+    margin-bottom: 20px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.credential-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.credential-item h4 {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+}
+
+.credential-meta {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.credential-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--primary-light);
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-top: 6px;
+}
+
 /* Media Queries for new sections */
 @media (max-width: 1024px) {
     .workflow-grid {
@@ -1306,6 +1407,9 @@ footer {
 
 @media (max-width: 768px) {
     .workflow-grid {
+        grid-template-columns: 1fr;
+    }
+    .credentials-grid {
         grid-template-columns: 1fr;
     }
     .dashboard-kpis {
