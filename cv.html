@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harshit Joshi - CV | QA Automation Architect & SDET</title>
+    <meta name="description" content="Curriculum Vitae of Harshit Joshi - QA Automation Architect and SDET specializing in Playwright, Selenium, Postman, CI/CD, SQL, and Localization Testing.">
+    
+    <!-- Google Fonts for Web Preview -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==========================================================================
+           ROOT VARIABLES & BASE RESETS
+           ========================================================================== */
+        :root {
+            --primary: #1e3a8a;          /* Deep classic navy */
+            --primary-light: #2563eb;    /* Vibrant professional blue */
+            --primary-subtle: #eff6ff;   /* Soft ice blue tint */
+            --text-main: #0f172a;        /* High-contrast slate black */
+            --text-secondary: #334155;   /* Neutral slate */
+            --text-muted: #64748b;       /* Muted slate for meta/dates */
+            --border-light: #e2e8f0;     /* Subtle divider */
+            --border-accent: #93c5fd;    /* Light blue border */
+            --bg-page: #ffffff;
+            --tag-bg: #f1f5f9;
+            --tag-text: #1e293b;
+            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --font-heading: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-main);
+            background-color: #f8fafc;
+            line-height: 1.48;
+            font-size: 9.75pt;
+            letter-spacing: -0.01em;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.15s ease;
+        }
+
+        a:hover {
+            color: var(--primary-light);
+        }
+
+        /* ==========================================================================
+           SCREEN FLOATING ACTION BAR (HIDDEN IN PRINT)
+           ========================================================================== */
+        .no-print {
+            display: block;
+        }
+
+        .action-bar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #0f172a;
+            color: #ffffff;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .action-bar-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .action-bar-title {
+            font-weight: 700;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #f8fafc;
+        }
+
+        .action-bar-hint {
+            font-size: 12px;
+            color: #94a3b8;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .action-bar-hint kbd {
+            background: #1e293b;
+            color: #38bdf8;
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid #334155;
+            font-family: monospace;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .action-bar-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            font-size: 13px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .btn-print {
+            background: #2563eb;
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.35);
+        }
+
+        .btn-print:hover {
+            background: #1d4ed8;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: #1e293b;
+            color: #cbd5e1;
+            border: 1px solid #334155;
+        }
+
+        .btn-secondary:hover {
+            background: #334155;
+            color: #ffffff;
+        }
+
+        /* Layout Mode Switcher */
+        .layout-switcher {
+            display: inline-flex;
+            background: #1e293b;
+            padding: 3px;
+            border-radius: 6px;
+            border: 1px solid #334155;
+        }
+
+        .layout-btn {
+            background: transparent;
+            color: #94a3b8;
+            border: none;
+            padding: 4px 10px;
+            font-size: 12px;
+            font-weight: 500;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .layout-btn.active {
+            background: #3b82f6;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        /* ==========================================================================
+           CV CONTAINER & PAPER WRAPPER (SCREEN DISPLAY)
+           ========================================================================== */
+        .cv-wrapper {
+            max-width: 210mm;
+            margin: 28px auto 48px auto;
+            background: var(--bg-page);
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
+            border-radius: 4px;
+            padding: 14mm 16mm;
+            position: relative;
+        }
+
+        /* ==========================================================================
+           CV HEADER
+           ========================================================================== */
+        header.cv-header {
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 12px;
+            margin-bottom: 14px;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .candidate-name {
+            font-family: var(--font-heading);
+            font-size: 26pt;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+        }
+
+        .candidate-title {
+            font-family: var(--font-heading);
+            font-size: 11pt;
+            font-weight: 700;
+            color: var(--primary-light);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-top: 4px;
+        }
+
+        /* Contact Details Grid */
+        .contact-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 18px;
+            margin-top: 10px;
+            font-size: 8.75pt;
+            color: var(--text-secondary);
+        }
+
+        .contact-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .contact-item svg {
+            width: 13px;
+            height: 13px;
+            color: var(--primary-light);
+            flex-shrink: 0;
+        }
+
+        .contact-item a {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .contact-item a:hover {
+            color: var(--primary-light);
+            text-decoration: underline;
+        }
+
+        /* ==========================================================================
+           SECTION STYLES
+           ========================================================================== */
+        .cv-section {
+            margin-bottom: 13px;
+            break-inside: auto;
+        }
+
+        .cv-section.avoid-break {
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            padding-bottom: 3px;
+            border-bottom: 1.5px solid var(--border-light);
+            break-after: avoid;
+            page-break-after: avoid;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-heading);
+            font-size: 11pt;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .section-header svg {
+            width: 14px;
+            height: 14px;
+            color: var(--primary-light);
+        }
+
+        /* Professional Summary */
+        .summary-text {
+            font-size: 9.25pt;
+            color: var(--text-secondary);
+            line-height: 1.48;
+            text-align: justify;
+        }
+
+        .summary-text strong {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        /* ==========================================================================
+           TECHNICAL SKILLS MATRIX
+           ========================================================================== */
+        .skills-table {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            font-size: 8.9pt;
+        }
+
+        .skill-row {
+            display: grid;
+            grid-template-columns: 145px 1fr;
+            align-items: baseline;
+            gap: 12px;
+            padding: 3px 0;
+        }
+
+        .skill-category {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 8.75pt;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .skill-list {
+            color: var(--text-secondary);
+            line-height: 1.38;
+        }
+
+        .skill-list span.highlight {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        /* ==========================================================================
+           WORK EXPERIENCE ENTRIES
+           ========================================================================== */
+        .experience-list {
+            display: flex;
+            flex-direction: column;
+            gap: 11px;
+        }
+
+        .experience-card {
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 2px;
+        }
+
+        .job-title-group {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .job-role {
+            font-size: 10.2pt;
+            font-weight: 700;
+            color: var(--text-main);
+            font-family: var(--font-heading);
+        }
+
+        .job-company {
+            font-size: 9.5pt;
+            font-weight: 600;
+            color: var(--primary-light);
+        }
+
+        .job-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 8.5pt;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .job-date {
+            background: #f1f5f9;
+            padding: 1px 7px;
+            border-radius: 4px;
+            color: #334155;
+            font-size: 8.2pt;
+        }
+
+        .bullet-list {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 4px;
+            display: flex;
+            flex-direction: column;
+            gap: 3.5px;
+        }
+
+        .bullet-list li {
+            position: relative;
+            padding-left: 14px;
+            font-size: 9pt;
+            color: var(--text-secondary);
+            line-height: 1.42;
+        }
+
+        .bullet-list li::before {
+            content: "▪";
+            position: absolute;
+            left: 2px;
+            top: -0.5px;
+            color: var(--primary-light);
+            font-size: 9pt;
+        }
+
+        .bullet-list li strong {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .tech-pill-strip {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-top: 5px;
+            padding-left: 14px;
+        }
+
+        .tech-pill {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 1px 6px;
+            border-radius: 3px;
+            font-size: 7.75pt;
+            font-weight: 500;
+            color: #475569;
+        }
+
+        /* ==========================================================================
+           KEY PROJECTS
+           ========================================================================== */
+        .projects-list {
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+        }
+
+        .project-card {
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 2px;
+            flex-wrap: wrap;
+        }
+
+        .project-title {
+            font-size: 9.75pt;
+            font-weight: 700;
+            color: var(--text-main);
+            font-family: var(--font-heading);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .project-client {
+            font-size: 8.5pt;
+            font-weight: 600;
+            color: var(--primary-light);
+        }
+
+        .project-desc {
+            font-size: 8.9pt;
+            color: var(--text-secondary);
+            line-height: 1.4;
+            padding-left: 14px;
+            position: relative;
+        }
+
+        .project-desc::before {
+            content: "▪";
+            position: absolute;
+            left: 2px;
+            top: -0.5px;
+            color: var(--primary-light);
+            font-size: 9pt;
+        }
+
+        .project-desc strong {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        /* ==========================================================================
+           TWO COLUMN SPLIT: EDUCATION & CERTIFICATIONS
+           ========================================================================== */
+        .two-col-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
+        .edu-item, .cert-item {
+            margin-bottom: 7px;
+        }
+
+        .edu-item:last-child, .cert-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .edu-degree, .cert-name {
+            font-size: 9.25pt;
+            font-weight: 700;
+            color: var(--text-main);
+            font-family: var(--font-heading);
+        }
+
+        .edu-school, .cert-issuer {
+            font-size: 8.5pt;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .edu-year {
+            font-size: 8.2pt;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        /* Subtle Page Break Indicator for multi-page print */
+        .page-break {
+            break-before: page;
+            page-break-before: always;
+        }
+
+        /* ==========================================================================
+           COMPACT MODE (TOGGLED VIA SCREEN BUTTON)
+           ========================================================================== */
+        body.compact-mode {
+            font-size: 9pt;
+            line-height: 1.38;
+        }
+
+        body.compact-mode .cv-wrapper {
+            padding: 10mm 14mm;
+        }
+
+        body.compact-mode .candidate-name {
+            font-size: 22pt;
+        }
+
+        body.compact-mode .cv-section {
+            margin-bottom: 9px;
+        }
+
+        body.compact-mode .experience-list {
+            gap: 8px;
+        }
+
+        body.compact-mode .projects-list {
+            gap: 6px;
+        }
+
+        body.compact-mode .bullet-list {
+            gap: 2px;
+        }
+
+        body.compact-mode .tech-pill-strip {
+            display: none;
+        }
+
+        /* ==========================================================================
+           PRINT MEDIA OPTIMIZATIONS (@media print)
+           ========================================================================== */
+        @page {
+            size: A4 portrait;
+            margin: 10mm 12mm 10mm 12mm;
+        }
+
+        @media print {
+            body {
+                background: #ffffff !important;
+                color: #0f172a !important;
+                font-size: 9.35pt;
+                line-height: 1.4;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            .no-print,
+            .action-bar {
+                display: none !important;
+            }
+
+            .cv-wrapper {
+                max-width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                background: #ffffff !important;
+            }
+
+            header.cv-header {
+                border-bottom: 2px solid #1e3a8a !important;
+                padding-bottom: 10px;
+                margin-bottom: 12px;
+            }
+
+            .candidate-name {
+                color: #1e3a8a !important;
+                font-size: 24pt !important;
+            }
+
+            .candidate-title {
+                color: #2563eb !important;
+                font-size: 10.5pt !important;
+            }
+
+            .section-header h2 {
+                color: #1e3a8a !important;
+                font-size: 10.5pt !important;
+            }
+
+            .section-header {
+                border-bottom: 1.5px solid #cbd5e1 !important;
+                break-after: avoid;
+                page-break-after: avoid;
+            }
+
+            .job-role, .project-title, .edu-degree, .cert-name {
+                color: #0f172a !important;
+            }
+
+            .job-company, .project-client {
+                color: #1d4ed8 !important;
+            }
+
+            .contact-item a {
+                color: #334155 !important;
+                text-decoration: none !important;
+            }
+
+            .contact-item svg,
+            .section-header svg {
+                color: #2563eb !important;
+            }
+
+            .job-date {
+                background: #f1f5f9 !important;
+                color: #1e293b !important;
+            }
+
+            .tech-pill {
+                background: #f8fafc !important;
+                border: 1px solid #cbd5e1 !important;
+                color: #334155 !important;
+            }
+
+            /* Prevent awkward splits on individual items only */
+            .experience-card,
+            .project-card,
+            .two-col-grid,
+            .skills-table,
+            .skill-row,
+            .job-header {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+
+            /* Natural clean break before Projects / Education if needed */
+            .print-page-break {
+                break-before: page;
+                page-break-before: always;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================================================
+         TOP FLOATING ACTION BAR (HIDDEN IN PRINT)
+         ========================================================================== -->
+    <aside class="action-bar no-print" aria-label="Print Toolbar">
+        <div class="action-bar-left">
+            <div class="action-bar-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+                Harshit Joshi • CV
+            </div>
+            <div class="action-bar-hint">
+                <span>Direct Print:</span> <kbd>Ctrl + P</kbd> <span>(or click button)</span>
+            </div>
+        </div>
+
+        <div class="action-bar-actions">
+            <!-- Layout Switcher -->
+            <div class="layout-switcher" title="Toggle layout density">
+                <button class="layout-btn active" id="btnDetailed" onclick="setLayout('detailed')">Detailed (2-Page)</button>
+                <button class="layout-btn" id="btnCompact" onclick="setLayout('compact')">Compact (1-Page)</button>
+            </div>
+
+            <!-- Print Button -->
+            <button class="btn-action btn-print" onclick="window.print()" title="Print CV or Save to PDF">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                    <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                    <rect x="6" y="14" width="12" height="8"></rect>
+                </svg>
+                Print / Save PDF
+            </button>
+
+            <!-- Back to Portfolio Link -->
+            <a href="index.html" class="btn-action btn-secondary" title="Return to interactive website">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Portfolio
+            </a>
+        </div>
+    </aside>
+
+    <!-- ==========================================================================
+         MAIN CV DOCUMENT CONTAINER
+         ========================================================================== -->
+    <main class="cv-wrapper" id="cvContent">
+
+        <!-- HEADER SECTION -->
+        <header class="cv-header">
+            <div class="header-top">
+                <div>
+                    <h1 class="candidate-name">HARSHIT JOSHI</h1>
+                    <div class="candidate-title">QA Automation Architect &bull; SDET &bull; Localization Testing Enginner</div>
+                </div>
+            </div>
+
+            <!-- Contact Grid -->
+            <div class="contact-grid">
+                <!-- Location -->
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span>Noida / Delhi NCR, India</span>
+                </div>
+
+                <!-- Phone -->
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    <a href="tel:+919015921534">+91 9015921534</a>
+                </div>
+
+                <!-- Email -->
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    <a href="mailto:harshit.joshi.in@gmail.com">harshit.joshi.in@gmail.com</a>
+                </div>
+
+                <!-- LinkedIn -->
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 11.268h-3v-5.604c0-1.337-.027-3.063-1.868-3.063-1.868 0-2.154 1.46-2.154 2.969v5.698h-3v-10h2.881v1.367h.041c.401-.76 1.379-1.562 2.837-1.562 3.036 0 3.6 2.007 3.6 4.618v5.577z"/>
+                    </svg>
+                    <a href="https://www.linkedin.com/in/harshit-joshi-140aa0217/" target="_blank">linkedin.com/in/harshit-joshi</a>
+                </div>
+
+                <!-- GitHub -->
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.089-.745.084-.729.084-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.835 2.809 1.304 3.495.997.108-.776.418-1.305.762-1.604-2.665-.305-5.466-1.334-5.466-5.931 0-1.31.469-2.381 1.236-3.221-.135-.303-.54-1.524.105-3.176 0 0 1.005-.322 3.3 1.23a11.48 11.48 0 0 1 3.003-.404c1.02.005 2.045.138 3.003.404 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.874.12 3.176.765.84 1.23 1.911 1.23 3.221 0 4.61-2.805 5.625-5.475 5.921.429.372.81 1.102.81 2.222 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57 4.765-1.585 8.2-6.082 8.2-11.385 0-6.627-5.373-12-12-12"/>
+                    </svg>
+                    <a href="https://github.com/connectharshitjoshi" target="_blank">github.com/connectharshitjoshi</a>
+                </div>
+
+                <!-- Portfolio -->
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                    <a href="https://connectharshitjoshi.github.io/portfolio/" target="_blank">connectharshitjoshi.github.io/portfolio</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- SECTION: PROFESSIONAL SUMMARY -->
+        <section class="cv-section avoid-break">
+            <div class="section-header">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                <h2>Professional Summary</h2>
+            </div>
+            <p class="summary-text">
+                Results-driven <strong>QA Automation Architect &amp; SDET</strong> with ~4 years of proven track record across localization testing (L10n/I18n), automated test framework architecture, and high-scale enterprise validation. Expert in architecting modular test suites with <strong>Playwright, Selenium WebDriver, and Postman</strong>, backed by automated <strong>CI/CD pipelines (Jenkins, GitHub Actions)</strong>. Recognized for cutting release regression cycles by <strong>60%</strong>, auditing high-concurrency systems handling over <strong>700,000+ users</strong> with zero defect leakage, and ensuring flawless user experiences across diverse global locales.
+            </p>
+        </section>
+
+        <!-- SECTION: TECHNICAL SKILLS MATRIX -->
+        <section class="cv-section avoid-break">
+            <div class="section-header">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+                <h2>Technical Core Competencies</h2>
+            </div>
+            <div class="skills-table">
+                <div class="skill-row">
+                    <div class="skill-category">Test Automation</div>
+                    <div class="skill-list">
+                        <span class="highlight">Playwright</span> (Web &amp; Mobile Web), <span class="highlight">Selenium WebDriver</span>, Page Object Model (POM), Appium (Mobile), Cypress, TestNG, Maven Build Tools, Cross-Browser &amp; Cross-Platform Suites
+                    </div>
+                </div>
+                <div class="skill-row">
+                    <div class="skill-category">API &amp; Performance</div>
+                    <div class="skill-list">
+                        <span class="highlight">Postman API Automation</span> (Collections, Assertions, Mock Servers), RESTful API &amp; JSON Validation, <span class="highlight">Charles Proxy</span>, Chrome DevTools Network Analysis, JMeter, LoadRunner
+                    </div>
+                </div>
+                <div class="skill-row">
+                    <div class="skill-category">CI/CD &amp; DevOps</div>
+                    <div class="skill-list">
+                        <span class="highlight">Jenkins CI/CD Pipelines</span>, <span class="highlight">GitHub Actions &amp; YAML</span>, Git Version Control, Automated PR Quality Gates, Test Execution Reporting, Agile &amp; Scrum Methodologies
+                    </div>
+                </div>
+                <div class="skill-row">
+                    <div class="skill-category">Languages &amp; DB</div>
+                    <div class="skill-list">
+                        <span class="highlight">Java</span>, <span class="highlight">SQL</span> (Data Integrity, Complex Queries &amp; Validation), JavaScript, HTML5/CSS3, AJAX
+                    </div>
+                </div>
+                <div class="skill-row">
+                    <div class="skill-category">QA &amp; Management</div>
+                    <div class="skill-list">
+                        <span class="highlight">Localization (L10n) &amp; Internationalization (I18n)</span>, JIRA, Bugzilla, Root Cause Analysis (RCA), Defect Lifecycle, Aadhaar &amp; Payment Gateway Testing
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: PROFESSIONAL EXPERIENCE -->
+        <section class="cv-section">
+            <div class="section-header">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                </svg>
+                <h2>Professional Experience</h2>
+            </div>
+
+            <div class="experience-list">
+                <!-- Role 1: Welo Global -->
+                <div class="experience-card">
+                    <div class="job-header">
+                        <div class="job-title-group">
+                            <span class="job-role">Localization Testing Engineer</span>
+                            <span class="job-company">| Welo Global</span>
+                        </div>
+                        <div class="job-meta">
+                            <span>Gurugram</span>
+                            <span class="job-date">Sept 2026 – Present</span>
+                        </div>
+                    </div>
+                    <ul class="bullet-list">
+                        <li>Execute end-to-end <strong>Localization (L10n)</strong> and <strong>Internationalization (I18n)</strong> testing for global digital platforms across diverse international regional locales.</li>
+                        <li>Audit linguistic translation accuracy, cultural adaptation, character encoding (<strong>UTF-8</strong>), UI string truncation, right-to-left layout compliance, and local date/currency formatting.</li>
+                        <li>Conduct rigorous cross-locale functional and regression cycles, partnering with international product teams to safeguard seamless release quality for worldwide audiences.</li>
+                    </ul>
+                    <div class="tech-pill-strip">
+                        <span class="tech-pill">Localization (L10n)</span>
+                        <span class="tech-pill">I18n</span>
+                        <span class="tech-pill">Linguistic QA</span>
+                        <span class="tech-pill">Cross-Locale Regression</span>
+                        <span class="tech-pill">UI Layout Verification</span>
+                    </div>
+                </div>
+
+                <!-- Role 2: Webkul Software -->
+                <div class="experience-card">
+                    <div class="job-header">
+                        <div class="job-title-group">
+                            <span class="job-role">Automation Architect &amp; POS Testing Team Lead</span>
+                            <span class="job-company">| Webkul Software Pvt. Ltd.</span>
+                        </div>
+                        <div class="job-meta">
+                            <span>Noida, UP</span>
+                            <span class="job-date">Feb 2025 – Sept 2026</span>
+                        </div>
+                    </div>
+                    <ul class="bullet-list">
+                        <li>Architected and scaled comprehensive automated end-to-end regression test suites for web and mobile applications using <strong>Playwright</strong> and <strong>Postman</strong>.</li>
+                        <li>Engineered and maintained continuous <strong>CI/CD test automation pipelines</strong> using <strong>Jenkins, GitHub Actions, and YAML</strong>, enabling automated verification on each pull request.</li>
+                        <li>Spearheaded QA for mission-critical <strong>POS and eCommerce workflows</strong>, validating payment gateway webhooks, inventory synchronization, and multi-browser cross-platform compatibility.</li>
+                        <li>Conducted deep-dive API, client-server latency, and network traffic inspections using <strong>Charles Proxy</strong> and <strong>Chrome DevTools</strong>.</li>
+                        <li>Created modular, reusable test script libraries for regression and UAT cycles, accelerating team release velocity by <strong>60%</strong> while minimizing defect slippage.</li>
+                    </ul>
+                    <div class="tech-pill-strip">
+                        <span class="tech-pill">Playwright</span>
+                        <span class="tech-pill">Postman</span>
+                        <span class="tech-pill">Jenkins CI/CD</span>
+                        <span class="tech-pill">GitHub Actions</span>
+                        <span class="tech-pill">Charles Proxy</span>
+                        <span class="tech-pill">POS &amp; Payments</span>
+                    </div>
+                </div>
+
+                <!-- Role 3: Infoneo Technologies -->
+                <div class="experience-card">
+                    <div class="job-header">
+                        <div class="job-title-group">
+                            <span class="job-role">Automation Quality Analyst</span>
+                            <span class="job-company">| Infoneo Technologies Pvt. Ltd.</span>
+                        </div>
+                        <div class="job-meta">
+                            <span>Noida, UP</span>
+                            <span class="job-date">Sept 2022 – Feb 2025</span>
+                        </div>
+                    </div>
+                    <ul class="bullet-list">
+                        <li>Delivered end-to-end functional, usability, performance, and security testing for high-volume enterprise and government web portals.</li>
+                        <li>Validated the <strong>Maha Kumbh Mela 2025 Public Distribution System</strong>, auditing data integrity, QR scanner hardware/printer integrations, and system reliability for <strong>700,000+ citizens</strong> with zero defect leakage.</li>
+                        <li>Validated government procurement platforms for <strong>Oil India &amp; ONGC</strong>, testing <strong>Aadhaar-based biometric authentication</strong>, encrypted document uploads, and automated lottery-based bidder selection algorithms.</li>
+                        <li>Authored extensive automated test suites with <strong>Selenium WebDriver (Java)</strong>, Page Object Model (POM), and TestNG; performed backend data verification via complex <strong>SQL queries</strong>.</li>
+                        <li>Logged, prioritized, and tracked 250+ bugs in <strong>JIRA and Bugzilla</strong>, facilitating rapid root cause analysis (RCA) and resolution across development sprints.</li>
+                    </ul>
+                    <div class="tech-pill-strip">
+                        <span class="tech-pill">Selenium WebDriver</span>
+                        <span class="tech-pill">Java &amp; TestNG</span>
+                        <span class="tech-pill">SQL Verification</span>
+                        <span class="tech-pill">JIRA / Bugzilla</span>
+                        <span class="tech-pill">Aadhaar Validation</span>
+                        <span class="tech-pill">API Testing</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: FEATURED ENGINEERING PROJECTS -->
+        <section class="cv-section">
+            <div class="section-header">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                    <polyline points="2 17 12 22 22 17"></polyline>
+                    <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+                <h2>Featured QA &amp; SDET Projects</h2>
+            </div>
+
+            <div class="projects-list">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-title">POS &amp; eCommerce Automation Framework</span>
+                        <span class="project-client">Webkul Software &bull; Playwright, Postman, Jenkins</span>
+                    </div>
+                    <p class="project-desc">
+                        Built a robust test automation framework automating multi-tenant POS transactions, cart-to-checkout flows, and payment reconciliations. Integrated headless test runs with Jenkins &amp; GitHub Actions, cutting regression test execution turnaround by <strong>60%</strong>.
+                    </p>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-title">Maha Kumbh Mela 2025 Public Distribution Monitoring System</span>
+                        <span class="project-client">Infoneo Technologies &bull; Functional, Security &amp; Hardware QA</span>
+                    </div>
+                    <p class="project-desc">
+                        Tested a mission-critical government citizen welfare distribution system handling <strong>700,000+ registrations</strong>. Validated real-time PostgreSQL database state synchronization, QR generation, and hardware scanner verification under peak loads.
+                    </p>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-title">Oil India &amp; ONGC Vehicle Tender Management Platform</span>
+                        <span class="project-client">Infoneo Technologies &bull; API &amp; Compliance Testing</span>
+                    </div>
+                    <p class="project-desc">
+                        Executed comprehensive API and workflow validation for a public procurement platform serving <strong>70,000+ applicants</strong>. Verified Aadhaar KYC verification, encrypted tender document uploads, and tamper-proof lottery algorithms using Postman collections.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: EDUCATION & CERTIFICATIONS (2 COLUMN GRID) -->
+        <section class="cv-section avoid-break">
+            <div class="two-col-grid">
+                <!-- Education Column -->
+                <div>
+                    <div class="section-header">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                            <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                        </svg>
+                        <h2>Education</h2>
+                    </div>
+                    <div class="edu-item">
+                        <div class="edu-degree">M.Tech in Computer Science</div>
+                        <div class="edu-school">Maharshi Dayanand University (MDU), Rohtak</div>
+                        <div class="edu-year">Pursuing (Higher Degree)</div>
+                    </div>
+                    <div class="edu-item">
+                        <div class="edu-degree">B.Tech in Computer Science &amp; Engineering</div>
+                        <div class="edu-school">J.C. Bose University of Science and Technology, YMCA</div>
+                        <div class="edu-year">Graduated: 2024 &bull; Faridabad, Haryana</div>
+                    </div>
+                </div>
+
+                <!-- Certifications Column -->
+                <div>
+                    <div class="section-header">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="8" r="7"></circle>
+                            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                        </svg>
+                        <h2>Certifications</h2>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Postman API Testing Certification</div>
+                        <div class="cert-issuer">Udemy &bull; Automated test scripts, mock servers &amp; Newman runners</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Selenium WebDriver with Java</div>
+                        <div class="cert-issuer">Test Automation University (TAU) &bull; Page Object Model (POM)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Interactive Script for layout switcher & print triggers -->
+    <script>
+        function setLayout(mode) {
+            const body = document.body;
+            const btnDetailed = document.getElementById('btnDetailed');
+            const btnCompact = document.getElementById('btnCompact');
+
+            if (mode === 'compact') {
+                body.classList.add('compact-mode');
+                btnCompact.classList.add('active');
+                btnDetailed.classList.remove('active');
+            } else {
+                body.classList.remove('compact-mode');
+                btnDetailed.classList.add('active');
+                btnCompact.classList.remove('active');
+            }
+        }
+
+        // Keyboard Shortcut Listener for Ctrl+P / Cmd+P
+        window.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && (e.key === 'p' || e.key === 'P')) {
+                // Browser native print will fire, standard @media print applies
+            }
+        });
+    </script>
+</body>
+</html>
